@@ -13,20 +13,20 @@ const hours = [
 export default function Location() {
   return (
     <section className="py-32 md:py-40 lg:py-48">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid md:grid-cols-2 rounded-xl overflow-hidden border border-white/5"
+          className="grid md:grid-cols-2 rounded-2xl overflow-hidden border border-white/[0.06]"
         >
           <motion.div
             variants={fadeInLeft}
             className="bg-surface p-10 md:p-14 lg:p-16 space-y-10"
           >
             <div>
-              <span className="block text-accent uppercase tracking-[0.2em] text-sm font-medium mb-4">
+              <span className="block text-accent uppercase tracking-[0.25em] text-xs font-medium mb-5">
                 Látogass el
               </span>
               <h2 className="font-heading text-4xl md:text-5xl font-semibold">
@@ -62,7 +62,7 @@ export default function Location() {
                 href="https://www.google.com/maps/search/?api=1&query=Pekedli+Bar+Veszprém+Rákóczi+utca+1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-accent/10 text-accent hover:bg-accent hover:text-primary text-sm font-medium tracking-wide uppercase px-6 py-3 rounded-sm transition-all duration-300"
+                className="inline-flex items-center gap-2 bg-accent/10 text-accent hover:bg-accent hover:text-primary text-sm font-medium tracking-wide uppercase px-6 py-3 transition-all duration-300"
               >
                 <Navigation size={16} />
                 Útvonal tervezés

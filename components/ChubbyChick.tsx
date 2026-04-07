@@ -7,7 +7,7 @@ import { fadeInLeft, fadeInRight, staggerContainer } from '@/lib/animations';
 export default function ChubbyChick() {
   return (
     <section className="py-32 md:py-40 lg:py-48 bg-secondary-dark">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -16,7 +16,7 @@ export default function ChubbyChick() {
           className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center"
         >
           <motion.div variants={fadeInLeft} className="space-y-8 order-2 md:order-1">
-            <span className="block text-accent uppercase tracking-[0.2em] text-sm font-medium">
+            <span className="block text-accent uppercase tracking-[0.25em] text-xs font-medium">
               Food Partner
             </span>
 
@@ -46,7 +46,7 @@ export default function ChubbyChick() {
 
           <motion.div
             variants={fadeInRight}
-            className="relative rounded-xl overflow-hidden aspect-[4/3] order-1 md:order-2"
+            className="relative rounded-2xl overflow-hidden aspect-[4/3] order-1 md:order-2"
           >
             <Image
               src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80"

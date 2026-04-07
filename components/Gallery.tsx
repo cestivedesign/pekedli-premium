@@ -17,7 +17,7 @@ const images = [
 export default function Gallery() {
   return (
     <section id="galeria" className="py-32 md:py-40 lg:py-48">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
         <motion.div
           variants={fadeInUp}
           initial="hidden"
@@ -25,7 +25,7 @@ export default function Gallery() {
           viewport={{ once: true, margin: '-100px' }}
           className="text-center mb-16"
         >
-          <span className="block text-accent uppercase tracking-[0.2em] text-sm font-medium mb-4">
+          <span className="block text-accent uppercase tracking-[0.25em] text-xs font-medium mb-5">
             Galéria
           </span>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold">
@@ -44,7 +44,7 @@ export default function Gallery() {
             <motion.div
               key={i}
               variants={staggerItem}
-              className={`relative rounded-xl overflow-hidden group cursor-pointer ${img.className}`}
+              className={`relative rounded-2xl overflow-hidden group cursor-pointer ${img.className}`}
             >
               <Image
                 src={img.src}

@@ -7,7 +7,7 @@ import { fadeInLeft, staggerContainer, staggerItem } from '@/lib/animations';
 export default function Story() {
   return (
     <section className="py-32 md:py-40 lg:py-48">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -17,7 +17,7 @@ export default function Story() {
         >
           <motion.div
             variants={fadeInLeft}
-            className="relative rounded-xl overflow-hidden aspect-[4/5]"
+            className="relative rounded-2xl overflow-hidden aspect-[4/5]"
           >
             <Image
               src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80"
@@ -37,7 +37,7 @@ export default function Story() {
           >
             <motion.span
               variants={staggerItem}
-              className="block text-accent uppercase tracking-[0.2em] text-sm font-medium"
+              className="block text-accent uppercase tracking-[0.25em] text-xs font-medium"
             >
               EST. 2023 · VESZPRÉM
             </motion.span>

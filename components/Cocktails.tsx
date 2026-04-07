@@ -37,7 +37,7 @@ export default function Cocktails() {
 
       <div className="absolute inset-0 bg-primary/80 z-[1]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 text-center">
         <motion.div
           variants={fadeInUp}
           initial="hidden"
@@ -45,7 +45,7 @@ export default function Cocktails() {
           viewport={{ once: true, margin: '-100px' }}
           className="mb-16"
         >
-          <span className="block text-accent uppercase tracking-[0.2em] text-sm font-medium mb-4">
+          <span className="block text-accent uppercase tracking-[0.25em] text-xs font-medium mb-5">
             Koktélok
           </span>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold mb-6">
@@ -68,7 +68,7 @@ export default function Cocktails() {
               key={cocktail.name}
               variants={staggerItem}
               whileHover={{ y: -6, transition: { duration: 0.3 } }}
-              className="bg-white/[0.08] backdrop-blur-md border border-white/10 rounded-xl p-6 md:p-8 hover:bg-white/[0.14] hover:border-accent/20 transition-all duration-300"
+              className="bg-white/[0.08] backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/[0.14] hover:border-accent/20 transition-all duration-300"
             >
               <h3 className="font-heading text-base md:text-lg font-semibold mb-2">
                 {cocktail.name}
@@ -84,7 +84,7 @@ export default function Cocktails() {
           whileInView="visible"
           viewport={{ once: true }}
           href="#"
-          className="inline-block border border-accent text-accent text-sm font-medium tracking-wider uppercase px-10 py-4 hover:bg-accent hover:text-primary transition-all duration-300 rounded-sm"
+          className="inline-block border border-accent text-accent text-sm font-medium tracking-wider uppercase px-10 py-4 hover:bg-accent hover:text-primary transition-all duration-300"
         >
           Teljes ital menü
         </motion.a>

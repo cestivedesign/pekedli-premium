@@ -45,7 +45,7 @@ export default function Testimonials() {
           viewport={{ once: true, margin: '-100px' }}
           className="text-center mb-16"
         >
-          <span className="block text-accent uppercase tracking-[0.2em] text-sm font-medium mb-4">
+          <span className="block text-accent uppercase tracking-[0.25em] text-xs font-medium mb-5">
             Vélemények
           </span>
           <h2 className="font-heading text-4xl md:text-5xl font-semibold">
@@ -59,7 +59,7 @@ export default function Testimonials() {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
-          <div className="bg-primary-light p-10 md:p-16 rounded-xl border border-white/5 text-center min-h-[320px] flex flex-col items-center justify-center">
+          <div className="bg-primary p-10 md:p-16 rounded-2xl border border-white/[0.06] text-center min-h-[340px] flex flex-col items-center justify-center">
             <div className="flex gap-1.5 mb-10">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} size={22} className="text-accent fill-accent" />

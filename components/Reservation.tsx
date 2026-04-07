@@ -42,7 +42,7 @@ export default function Reservation() {
         >
           <motion.span
             variants={staggerItem}
-            className="block text-accent uppercase tracking-[0.2em] text-sm font-medium mb-4"
+            className="block text-accent uppercase tracking-[0.25em] text-xs font-medium mb-5"
           >
             Foglalás
           </motion.span>
@@ -66,7 +66,7 @@ export default function Reservation() {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           onSubmit={handleSubmit}
-          className="bg-surface/60 backdrop-blur-sm p-8 md:p-14 rounded-xl border border-white/5"
+          className="bg-surface/60 backdrop-blur-sm p-8 md:p-14 rounded-2xl border border-white/[0.06]"
         >
           <div className="grid md:grid-cols-2 gap-x-10 gap-y-8 mb-12">
             <div>
@@ -185,7 +185,7 @@ export default function Reservation() {
             type="submit"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full bg-accent text-primary py-5 text-base md:text-lg font-semibold tracking-wider uppercase hover:bg-accent-light transition-colors duration-300 shadow-lg shadow-accent/20 rounded-sm"
+            className="w-full bg-accent text-primary py-5 text-base md:text-lg font-semibold tracking-wider uppercase hover:bg-accent-light transition-colors duration-300 shadow-lg shadow-accent/20"
           >
             Asztal foglalása
           </motion.button>

@@ -7,20 +7,25 @@ import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 export default function Reservation() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', guests: '', date: '', time: '' });
   const set = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => setForm({ ...form, [e.target.name]: e.target.value });
-  const inp = 'w-full bg-transparent border-b-2 border-white/10 focus:border-accent text-text-primary py-3 outline-none transition-colors duration-300 placeholder:text-text-muted text-base';
+  const inp = 'w-full bg-white/[0.03] border border-white/[0.06] rounded-xl focus:border-accent/50 focus:bg-accent/5 text-text-primary py-3.5 px-4 outline-none transition-all duration-300 placeholder:text-text-muted text-base';
 
   return (
-    <section id="foglalas" className="section-padding bg-gradient-to-b from-primary to-secondary-dark">
-      <div className="container-main">
+    <section id="foglalas" className="section-padding relative noise-overlay overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-primary via-secondary-dark/30 to-secondary-dark z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/[0.03] rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container-main relative z-10">
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} className="text-center mb-12 md:mb-14">
-          <motion.span variants={staggerItem} className="block text-accent uppercase tracking-[0.25em] text-xs font-medium mb-5">Foglalás</motion.span>
-          <motion.h2 variants={staggerItem} className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-semibold mb-4">Foglalj asztalt</motion.h2>
+          <motion.div variants={staggerItem} className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
+            <span className="text-accent text-xs font-medium tracking-[0.25em] uppercase">Foglalás</span>
+          </motion.div>
+          <motion.h2 variants={staggerItem} className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-semibold mb-4 text-glow">Foglalj asztalt</motion.h2>
           <motion.p variants={staggerItem} className="text-text-secondary text-base md:text-lg">Garantáld a helyed egy felejthetetlen estéhez</motion.p>
         </motion.div>
 
         <motion.form variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}
-          onSubmit={(e) => e.preventDefault()} className="max-w-2xl mx-auto bg-surface/60 backdrop-blur-sm p-8 md:p-12 rounded-2xl border border-white/[0.06]">
-          <div className="grid md:grid-cols-2 gap-x-8 gap-y-7 mb-10">
+          onSubmit={(e) => e.preventDefault()} className="max-w-2xl mx-auto card-3d p-8 md:p-12 !rounded-3xl">
+          <div className="grid md:grid-cols-2 gap-x-6 gap-y-5 mb-10">
             {[
               { id: 'name', label: 'Név', type: 'text', ph: 'Teljes neved' },
               { id: 'email', label: 'Email', type: 'email', ph: 'email@pelda.hu' },
@@ -50,10 +55,7 @@ export default function Reservation() {
               </select>
             </div>
           </div>
-          <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-            className="w-full bg-accent text-primary py-4 text-base font-semibold tracking-wider uppercase hover:bg-accent-light transition-colors duration-300 shadow-lg shadow-accent/20">
-            Asztal foglalása
-          </motion.button>
+          <button type="submit" className="btn-primary w-full !py-4 !text-base">Asztal foglalása</button>
         </motion.form>
       </div>
     </section>

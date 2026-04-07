@@ -21,47 +21,40 @@ export default function GinCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canLeft, setCanLeft] = useState(false);
   const [canRight, setCanRight] = useState(true);
-
-  const check = () => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setCanLeft(el.scrollLeft > 10);
-    setCanRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
-  };
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    el.addEventListener('scroll', check, { passive: true });
-    check();
-    return () => el.removeEventListener('scroll', check);
-  }, []);
-
-  const scroll = (dir: number) => scrollRef.current?.scrollBy({ left: dir * 320, behavior: 'smooth' });
+  const check = () => { const el = scrollRef.current; if (!el) return; setCanLeft(el.scrollLeft > 10); setCanRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10); };
+  useEffect(() => { const el = scrollRef.current; if (!el) return; el.addEventListener('scroll', check, { passive: true }); check(); return () => el.removeEventListener('scroll', check); }, []);
+  const scroll = (d: number) => scrollRef.current?.scrollBy({ left: d * 310, behavior: 'smooth' });
 
   return (
-    <section id="ginek" className="section-padding bg-gradient-to-b from-secondary-dark to-primary">
-      <div className="container-main">
-        {/* Header */}
+    <section id="ginek" className="section-padding relative noise-overlay overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary-dark via-secondary-dark/80 to-primary z-0" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container-main relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
           <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}>
-            <span className="block text-accent uppercase tracking-[0.25em] text-xs font-medium mb-5">Gin kollekció</span>
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-semibold mb-3">Válogatott ginek</h2>
+            <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
+              <span className="text-accent text-xs font-medium tracking-[0.25em] uppercase">Gin kollekció</span>
+            </div>
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-semibold mb-3 text-glow">Válogatott ginek</h2>
             <p className="text-text-secondary text-base md:text-lg">A világ minden tájáról, gondosan válogatva</p>
           </motion.div>
           <div className="hidden md:flex gap-2 flex-shrink-0">
-            <button onClick={() => scroll(-1)} disabled={!canLeft} className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-text-secondary hover:text-accent hover:border-accent/30 disabled:opacity-20 transition-all" aria-label="Előző"><ChevronLeft size={20} /></button>
-            <button onClick={() => scroll(1)} disabled={!canRight} className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-text-secondary hover:text-accent hover:border-accent/30 disabled:opacity-20 transition-all" aria-label="Következő"><ChevronRight size={20} /></button>
+            {[{ d: -1, icon: ChevronLeft, can: canLeft }, { d: 1, icon: ChevronRight, can: canRight }].map((b, i) => (
+              <button key={i} onClick={() => scroll(b.d)} disabled={!b.can}
+                className="w-11 h-11 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center text-text-secondary hover:text-accent hover:border-accent/30 hover:bg-accent/5 disabled:opacity-20 transition-all duration-300">
+                <b.icon size={18} />
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Cards */}
         <div ref={scrollRef} className="flex gap-5 overflow-x-auto pb-2 scrollbar-hide snap-x snap-mandatory">
           {gins.map((gin) => (
-            <div key={gin.name} className="w-[270px] md:w-[280px] flex-shrink-0 bg-surface rounded-2xl overflow-hidden border border-white/[0.06] group hover:border-accent/20 transition-all duration-500 snap-start">
-              <div className="relative h-48 overflow-hidden bg-primary-light">
+            <div key={gin.name} className="w-[270px] md:w-[280px] flex-shrink-0 card-3d group snap-start">
+              <div className="relative h-48 overflow-hidden">
                 <Image src={gin.image} alt={gin.name} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="280px" />
-                <div className="absolute inset-0 bg-gradient-to-t from-surface/90 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent" />
               </div>
               <div className="p-5">
                 <div className="flex items-center justify-between mb-1">
@@ -75,11 +68,8 @@ export default function GinCarousel() {
             </div>
           ))}
         </div>
-
         <div className="mt-10">
-          <a href="#" className="text-accent hover:text-accent-light text-sm font-medium tracking-wide uppercase underline underline-offset-8 decoration-accent/30 hover:decoration-accent transition-all duration-300">
-            Teljes gin menü &rarr;
-          </a>
+          <a href="#" className="btn-outline text-xs py-3 px-6">Teljes gin menü &rarr;</a>
         </div>
       </div>
     </section>

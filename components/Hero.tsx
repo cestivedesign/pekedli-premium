@@ -2,39 +2,41 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 
 const headline = 'Ahol minden korty egy történet';
 
 export default function Hero() {
   const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, -150]);
+  const opacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
 
   const words = headline.split(' ');
 
   return (
-    <section id="hero" className="relative h-screen overflow-hidden">
+    <section id="hero" className="relative h-screen min-h-[600px] overflow-hidden">
       <motion.div
         style={{ y }}
-        className="absolute inset-0 bg-cover bg-center scale-110"
+        className="absolute inset-[-10%] z-0"
       >
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80')",
-          }}
+        <Image
+          src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80"
+          alt="Pekedli Bar & Lounge belső"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
         />
       </motion.div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-primary/20 z-[1]" />
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6"
+        className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20"
       >
         <div className="max-w-4xl">
-          <h1 className="font-[family-name:var(--font-heading)] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8">
+          <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-8">
             {words.map((word, i) => (
               <motion.span
                 key={i}
@@ -45,7 +47,7 @@ export default function Hero() {
                   duration: 0.6,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="inline-block mr-[0.3em]"
+                className="inline-block mr-[0.25em] last:mr-0"
               >
                 {word}
               </motion.span>

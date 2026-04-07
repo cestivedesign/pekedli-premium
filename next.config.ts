@@ -7,13 +7,11 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "pekedli.hu",
         pathname: "/wp-content/**",
-        search: "",
       },
       {
         protocol: "https",
         hostname: "images.unsplash.com",
         pathname: "/**",
-        search: "",
       },
     ],
   },

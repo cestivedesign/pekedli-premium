@@ -5,7 +5,7 @@ import { motion, useInView } from 'framer-motion';
 import { Wine, GlassWater, Beer } from 'lucide-react';
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 
-function CountUp({ target, suffix = '' }: { target: number; suffix?: string }) {
+function CountUp({ target, prefix = '', suffix = '' }: { target: number; prefix?: string; suffix?: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
@@ -29,8 +29,7 @@ function CountUp({ target, suffix = '' }: { target: number; suffix?: string }) {
 
   return (
     <span ref={ref}>
-      {count}
-      {suffix}
+      {prefix}{count}{suffix}
     </span>
   );
 }
@@ -39,26 +38,26 @@ const cards = [
   {
     icon: Wine,
     number: 30,
+    prefix: '',
     suffix: '+',
     title: 'Prémium gin',
     description: 'A világ legjobb ginpárlataival várunk, Skóciától Japánig.',
-    href: '#ginek',
   },
   {
     icon: GlassWater,
     number: 40,
-    suffix: '~',
+    prefix: '~',
+    suffix: '',
     title: 'Koktél',
     description: 'Klasszikus receptúrák és saját signature kreációk.',
-    href: '#koktelok',
   },
   {
     icon: Beer,
     number: 5,
+    prefix: '',
     suffix: '',
     title: 'Csapolt sör',
     description: 'Guinness, Pilsner, Peroni, HB búza és Dreher Gold.',
-    href: '#',
   },
 ];
 
@@ -71,7 +70,7 @@ export default function Experience() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-semibold text-center mb-16"
+          className="font-heading text-4xl md:text-5xl font-semibold text-center mb-16"
         >
           Fedezd fel a kínálatunkat
         </motion.h2>
@@ -96,12 +95,11 @@ export default function Experience() {
                 strokeWidth={1.5}
               />
 
-              <div className="font-[family-name:var(--font-heading)] text-5xl font-bold text-accent mb-4">
-                {card.suffix === '~' ? '~' : ''}
-                <CountUp target={card.number} suffix={card.suffix === '+' ? '+' : ''} />
+              <div className="font-heading text-5xl font-bold text-accent mb-4">
+                <CountUp target={card.number} prefix={card.prefix} suffix={card.suffix} />
               </div>
 
-              <h3 className="font-[family-name:var(--font-heading)] text-xl md:text-2xl font-semibold mb-3">
+              <h3 className="font-heading text-xl md:text-2xl font-semibold mb-3">
                 {card.title}
               </h3>
 
@@ -112,7 +110,7 @@ export default function Experience() {
               <span className="text-accent text-sm font-medium tracking-wide uppercase flex items-center gap-2 group-hover:gap-3 transition-all duration-300">
                 Felfedezés
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  →
+                  &rarr;
                 </span>
               </span>
             </motion.div>

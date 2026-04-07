@@ -22,8 +22,10 @@ export default function Reservation() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic
   };
+
+  const inputClasses =
+    'w-full bg-transparent border-b border-white/20 focus:border-accent text-text-primary py-3 outline-none transition-colors duration-300 placeholder:text-text-muted text-base';
 
   return (
     <section
@@ -40,7 +42,7 @@ export default function Reservation() {
         >
           <motion.h2
             variants={staggerItem}
-            className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-semibold mb-4"
+            className="font-heading text-4xl md:text-5xl font-semibold mb-4"
           >
             Foglalj asztalt
           </motion.h2>
@@ -60,12 +62,9 @@ export default function Reservation() {
           onSubmit={handleSubmit}
           className="bg-surface/50 backdrop-blur-sm p-8 md:p-12 rounded-lg border border-white/5"
         >
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-6 mb-10">
             <div>
-              <label
-                htmlFor="name"
-                className="block text-sm text-text-secondary mb-2"
-              >
+              <label htmlFor="name" className="block text-sm text-text-secondary mb-2 font-medium">
                 Név
               </label>
               <input
@@ -76,15 +75,12 @@ export default function Reservation() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full bg-transparent border-b border-white/20 focus:border-accent text-text-primary py-3 outline-none transition-colors duration-300 placeholder:text-text-muted"
+                className={inputClasses}
               />
             </div>
 
             <div>
-              <label
-                htmlFor="email"
-                className="block text-sm text-text-secondary mb-2"
-              >
+              <label htmlFor="email" className="block text-sm text-text-secondary mb-2 font-medium">
                 Email
               </label>
               <input
@@ -95,15 +91,12 @@ export default function Reservation() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full bg-transparent border-b border-white/20 focus:border-accent text-text-primary py-3 outline-none transition-colors duration-300 placeholder:text-text-muted"
+                className={inputClasses}
               />
             </div>
 
             <div>
-              <label
-                htmlFor="phone"
-                className="block text-sm text-text-secondary mb-2"
-              >
+              <label htmlFor="phone" className="block text-sm text-text-secondary mb-2 font-medium">
                 Telefon
               </label>
               <input
@@ -114,15 +107,12 @@ export default function Reservation() {
                 value={formData.phone}
                 onChange={handleChange}
                 required
-                className="w-full bg-transparent border-b border-white/20 focus:border-accent text-text-primary py-3 outline-none transition-colors duration-300 placeholder:text-text-muted"
+                className={inputClasses}
               />
             </div>
 
             <div>
-              <label
-                htmlFor="guests"
-                className="block text-sm text-text-secondary mb-2"
-              >
+              <label htmlFor="guests" className="block text-sm text-text-secondary mb-2 font-medium">
                 Vendégszám
               </label>
               <select
@@ -131,13 +121,13 @@ export default function Reservation() {
                 value={formData.guests}
                 onChange={handleChange}
                 required
-                className="w-full bg-transparent border-b border-white/20 focus:border-accent text-text-primary py-3 outline-none transition-colors duration-300 appearance-none cursor-pointer"
+                className={`${inputClasses} appearance-none cursor-pointer`}
               >
-                <option value="" disabled className="bg-surface text-text-muted">
+                <option value="" disabled>
                   Válassz...
                 </option>
                 {[1, 2, 3, 4, 5, '6+'].map((n) => (
-                  <option key={n} value={n} className="bg-surface text-text-primary">
+                  <option key={n} value={n}>
                     {n} fő
                   </option>
                 ))}
@@ -145,10 +135,7 @@ export default function Reservation() {
             </div>
 
             <div>
-              <label
-                htmlFor="date"
-                className="block text-sm text-text-secondary mb-2"
-              >
+              <label htmlFor="date" className="block text-sm text-text-secondary mb-2 font-medium">
                 Dátum
               </label>
               <input
@@ -158,15 +145,12 @@ export default function Reservation() {
                 value={formData.date}
                 onChange={handleChange}
                 required
-                className="w-full bg-transparent border-b border-white/20 focus:border-accent text-text-primary py-3 outline-none transition-colors duration-300"
+                className={`${inputClasses} cursor-pointer`}
               />
             </div>
 
             <div>
-              <label
-                htmlFor="time"
-                className="block text-sm text-text-secondary mb-2"
-              >
+              <label htmlFor="time" className="block text-sm text-text-secondary mb-2 font-medium">
                 Időpont
               </label>
               <select
@@ -175,14 +159,14 @@ export default function Reservation() {
                 value={formData.time}
                 onChange={handleChange}
                 required
-                className="w-full bg-transparent border-b border-white/20 focus:border-accent text-text-primary py-3 outline-none transition-colors duration-300 appearance-none cursor-pointer"
+                className={`${inputClasses} appearance-none cursor-pointer`}
               >
-                <option value="" disabled className="bg-surface text-text-muted">
+                <option value="" disabled>
                   Válassz...
                 </option>
                 {['16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'].map(
                   (t) => (
-                    <option key={t} value={t} className="bg-surface text-text-primary">
+                    <option key={t} value={t}>
                       {t}
                     </option>
                   )
@@ -195,7 +179,7 @@ export default function Reservation() {
             type="submit"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full bg-accent text-primary py-4 text-lg font-medium tracking-wider uppercase hover:bg-accent-light transition-colors duration-300 shadow-lg shadow-accent/20"
+            className="w-full bg-accent text-primary py-4 text-base md:text-lg font-medium tracking-wider uppercase hover:bg-accent-light transition-colors duration-300 shadow-lg shadow-accent/20"
           >
             Asztal foglalása
           </motion.button>

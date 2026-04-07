@@ -22,6 +22,15 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
   return (
     <>
       <motion.nav
@@ -35,7 +44,7 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-20">
-          <a href="#hero" className="relative z-10">
+          <a href="#hero" className="relative z-10 flex-shrink-0">
             <Image
               src="https://pekedli.hu/wp-content/uploads/2024/08/logo_uj_vilagos.png"
               alt="Pekedli Bar & Lounge"
@@ -67,7 +76,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden relative z-10 text-text-primary p-2"
+            className="md:hidden relative z-[60] text-text-primary p-2"
             aria-label="Menü"
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -82,7 +91,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-primary/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden"
+            className="fixed inset-0 z-[55] bg-primary/98 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden"
           >
             {navLinks.map((link, i) => (
               <motion.a
@@ -92,7 +101,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="text-2xl font-[family-name:var(--font-heading)] font-semibold text-text-primary hover:text-accent transition-colors"
+                className="text-2xl font-heading font-semibold text-text-primary hover:text-accent transition-colors"
               >
                 {link.label}
               </motion.a>

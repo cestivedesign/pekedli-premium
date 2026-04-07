@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Clock, MapPin, Navigation } from 'lucide-react';
-import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '@/lib/animations';
+import { fadeInLeft, fadeInRight, staggerContainer } from '@/lib/animations';
 
 const hours = [
   { days: 'Hétfő — Csütörtök', time: '16:00 — 24:00' },
@@ -19,36 +19,34 @@ export default function Location() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid md:grid-cols-2 gap-0 rounded-lg overflow-hidden border border-white/5"
+          className="grid md:grid-cols-2 rounded-lg overflow-hidden border border-white/5"
         >
           <motion.div
             variants={fadeInLeft}
             className="bg-surface p-8 md:p-12 lg:p-16 space-y-8"
           >
-            <div className="space-y-4">
-              <h2 className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-semibold">
-                Nyitvatartás
-              </h2>
-            </div>
+            <h2 className="font-heading text-4xl md:text-5xl font-semibold">
+              Nyitvatartás
+            </h2>
 
-            <div className="space-y-4">
+            <div className="space-y-0">
               {hours.map((item) => (
                 <div
                   key={item.days}
-                  className="flex items-center justify-between py-3 border-b border-white/5 last:border-0"
+                  className="flex items-center justify-between py-4 border-b border-white/5 last:border-0"
                 >
                   <div className="flex items-center gap-3">
-                    <Clock size={16} className="text-accent" />
-                    <span className="text-text-primary">{item.days}</span>
+                    <Clock size={16} className="text-accent flex-shrink-0" />
+                    <span className="text-text-primary text-sm md:text-base">{item.days}</span>
                   </div>
-                  <span className="text-accent font-medium">{item.time}</span>
+                  <span className="text-accent font-medium text-sm md:text-base">{item.time}</span>
                 </div>
               ))}
             </div>
 
             <div className="pt-4 border-t border-white/10 space-y-4">
               <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-accent mt-1 flex-shrink-0" />
+                <MapPin size={18} className="text-accent mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-text-primary font-medium">8200 Veszprém</p>
                   <p className="text-text-secondary">Rákóczi Ferenc utca 1</p>
@@ -62,14 +60,14 @@ export default function Location() {
                 className="inline-flex items-center gap-2 text-accent hover:text-accent-light text-sm font-medium tracking-wide uppercase transition-colors duration-300"
               >
                 <Navigation size={16} />
-                Útvonal tervezés →
+                Útvonal tervezés &rarr;
               </a>
             </div>
           </motion.div>
 
           <motion.div
             variants={fadeInRight}
-            className="relative min-h-[300px] md:min-h-0"
+            className="relative min-h-[350px] bg-primary-light"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2719.1!2d17.9085!3d47.0932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDA1JzM1LjUiTiAxN8KwNTQnMzAuNiJF!5e0!3m2!1shu!2shu!4v1"

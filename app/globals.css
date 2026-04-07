@@ -20,8 +20,8 @@
   --color-surface: #111111;
   --color-surface-elevated: #1A1A1A;
 
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-heading: var(--font-playfair), 'Playfair Display', serif;
+  --font-body: var(--font-dm-sans), 'DM Sans', sans-serif;
 }
 
 * {
@@ -32,6 +32,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
@@ -65,6 +66,19 @@ body {
   animation-play-state: paused;
 }
 
+/* Form elements dark theme */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(0.7);
+  cursor: pointer;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A89F91' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  padding-right: 20px;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -81,4 +95,14 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #D4A853;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
 }

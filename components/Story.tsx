@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '@/lib/animations';
+import Image from 'next/image';
+import { fadeInLeft, staggerContainer, staggerItem } from '@/lib/animations';
 
 export default function Story() {
   return (
@@ -12,18 +13,18 @@ export default function Story() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid md:grid-cols-2 gap-12 items-center"
+          className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center"
         >
           <motion.div
             variants={fadeInLeft}
             className="relative rounded-lg overflow-hidden aspect-[4/5]"
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
-              style={{
-                backgroundImage:
-                  "url('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80')",
-              }}
+            <Image
+              src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80"
+              alt="Pekedli Bar belső tér"
+              fill
+              className="object-cover transition-transform duration-700 hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </motion.div>
 
@@ -36,14 +37,14 @@ export default function Story() {
           >
             <motion.span
               variants={staggerItem}
-              className="text-accent uppercase tracking-[0.2em] text-sm font-medium"
+              className="block text-accent uppercase tracking-[0.2em] text-sm font-medium"
             >
               EST. 2023 · VESZPRÉM
             </motion.span>
 
             <motion.h2
               variants={staggerItem}
-              className="font-[family-name:var(--font-heading)] text-4xl md:text-5xl font-semibold leading-tight"
+              className="font-heading text-4xl md:text-5xl font-semibold leading-tight"
             >
               Több mint egy bár
             </motion.h2>

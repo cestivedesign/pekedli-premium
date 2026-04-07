@@ -5,13 +5,15 @@ import "./globals.css";
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-heading",
+  variable: "--font-playfair",
+  display: "swap",
 });
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
-  variable: "--font-body",
+  variable: "--font-dm-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -37,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hu" className={`${playfair.variable} ${dmSans.variable}`}>
-      <body className="font-[family-name:var(--font-body)] bg-primary text-text-primary antialiased">
+      <body className="font-body bg-primary text-text-primary antialiased overflow-x-hidden">
         {children}
       </body>
     </html>

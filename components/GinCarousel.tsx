@@ -28,15 +28,13 @@ export default function GinCarousel() {
   return (
     <section id="ginek" className="section-padding relative noise-overlay overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-secondary-dark via-secondary-dark/80 to-primary z-0" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
-
       <div className="container-main relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-16">
-          <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}>
-            <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
-              <span className="text-accent text-xs font-medium tracking-[0.25em] uppercase">Gin kollekció</span>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
+          <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
+            <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-4">
+              <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Gin kollekció</span>
             </div>
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-semibold mb-3 text-glow">Válogatott ginek</h2>
+            <h2 className="font-heading font-semibold mb-3 text-glow" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>Válogatott ginek</h2>
             <p className="text-text-secondary text-base md:text-lg">A világ minden tájáról, gondosan válogatva</p>
           </motion.div>
           <div className="hidden md:flex gap-2 flex-shrink-0">
@@ -49,26 +47,26 @@ export default function GinCarousel() {
           </div>
         </div>
 
-        <div ref={scrollRef} className="flex gap-5 overflow-x-auto pb-2 scrollbar-hide snap-x snap-mandatory">
+        <div ref={scrollRef} className="flex gap-6 md:gap-8 overflow-x-auto pb-2 scrollbar-hide snap-x snap-mandatory">
           {gins.map((gin) => (
-            <div key={gin.name} className="w-[270px] md:w-[280px] flex-shrink-0 card-3d group snap-start">
+            <div key={gin.name} className="w-[280px] md:w-[300px] flex-shrink-0 card-3d group snap-start">
               <div className="relative h-48 overflow-hidden">
-                <Image src={gin.image} alt={gin.name} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="280px" />
+                <Image src={gin.image} alt={gin.name} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="300px" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent" />
               </div>
-              <div className="p-5">
-                <div className="flex items-center justify-between mb-1">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
                   <h3 className="font-heading text-lg font-semibold truncate mr-2">{gin.name}</h3>
                   <span className="text-lg flex-shrink-0">{gin.flag}</span>
                 </div>
-                <p className="text-text-muted text-[10px] uppercase tracking-widest mb-2">{gin.origin}</p>
-                <p className="text-text-secondary text-sm leading-relaxed mb-3">{gin.desc}</p>
-                <p className="text-accent font-semibold text-sm">{gin.price} <span className="text-text-muted font-normal text-xs">/ 4cl</span></p>
+                <p className="text-text-muted text-[10px] uppercase tracking-widest mb-3">{gin.origin}</p>
+                <p className="text-text-secondary text-sm leading-relaxed mb-4">{gin.desc}</p>
+                <p className="text-accent font-semibold text-sm mt-auto">{gin.price} <span className="text-text-muted font-normal text-xs">/ 4cl</span></p>
               </div>
             </div>
           ))}
         </div>
-        <div className="mt-10">
+        <div className="mt-12">
           <a href="#" className="btn-outline text-xs py-3 px-6">Teljes gin menü &rarr;</a>
         </div>
       </div>

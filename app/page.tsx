@@ -12,20 +12,33 @@ import Reservation from '@/components/Reservation';
 import Partners from '@/components/Partners';
 import Footer from '@/components/Footer';
 
+function Divider() {
+  return <div className="section-divider" />;
+}
+
 export default function Home() {
   return (
     <>
       <Navbar />
       <main>
         <Hero />
+        <Divider />
         <Story />
+        <Divider />
         <Experience />
+        <Divider />
         <GinCarousel />
+        <Divider />
         <Cocktails />
+        <Divider />
         <Gallery />
+        <Divider />
         <ChubbyChick />
+        <Divider />
         <Testimonials />
+        <Divider />
         <Location />
+        <Divider />
         <Reservation />
         <Partners />
       </main>

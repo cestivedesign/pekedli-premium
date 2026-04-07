@@ -27,20 +27,20 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-dark border-t border-white/5">
-      <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }} className="container-main py-14 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+    <footer className="border-t border-white/10 bg-primary-dark">
+      <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="container-main pt-16 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-10">
           <motion.div variants={staggerItem} className="space-y-4">
             <Image src="https://pekedli.hu/wp-content/uploads/2024/08/logo_uj_vilagos.png" alt="Pekedli" width={140} height={48} className="h-10 w-auto object-contain" />
             <p className="text-text-secondary text-sm leading-relaxed max-w-xs">Prémium gin bár és lounge Veszprém szívében. Ahol minden korty egy történet.</p>
           </motion.div>
-          <motion.div variants={staggerItem} className="space-y-3">
+          <motion.div variants={staggerItem} className="space-y-4">
             <h3 className="font-heading text-base font-semibold">Navigáció</h3>
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-2.5">
               {footerLinks.map((l) => <a key={l.href} href={l.href} className="text-text-secondary hover:text-accent text-sm transition-colors w-fit">{l.label}</a>)}
             </nav>
           </motion.div>
-          <motion.div variants={staggerItem} className="space-y-3">
+          <motion.div variants={staggerItem} className="space-y-4">
             <h3 className="font-heading text-base font-semibold">Kapcsolat</h3>
             <p className="text-sm text-text-secondary">8200 Veszprém</p>
             <p className="text-sm text-text-secondary">Rákóczi Ferenc utca 1</p>

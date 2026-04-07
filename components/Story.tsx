@@ -9,8 +9,8 @@ export default function Story() {
     <section className="section-padding relative noise-overlay">
       <div className="absolute inset-0 bg-gradient-to-b from-primary via-transparent to-primary pointer-events-none z-0" />
       <div className="container-main relative z-10">
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}
-          className="grid md:grid-cols-2 gap-10 lg:gap-20 items-center">
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
           <motion.div variants={fadeInLeft} className="relative group">
             <div className="absolute -inset-4 bg-gradient-to-br from-accent/20 via-transparent to-secondary/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="relative rounded-2xl overflow-hidden aspect-[4/5] ring-1 ring-white/5">
@@ -20,11 +20,11 @@ export default function Story() {
             </div>
           </motion.div>
 
-          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} className="space-y-6 md:space-y-8">
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="space-y-5 md:space-y-6">
             <motion.div variants={staggerItem} className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5">
-              <span className="text-accent text-xs font-medium tracking-[0.25em] uppercase">EST. 2023 &middot; VESZPRÉM</span>
+              <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">EST. 2023 &middot; VESZPRÉM</span>
             </motion.div>
-            <motion.h2 variants={staggerItem} className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-semibold leading-[1.1]">
+            <motion.h2 variants={staggerItem} className="font-heading font-semibold leading-[1.15]" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
               Több mint egy bár
             </motion.h2>
             <motion.div variants={staggerItem} className="accent-line" />

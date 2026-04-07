@@ -26,18 +26,18 @@ export default function Cocktails() {
       <div className="absolute inset-0 bg-gradient-to-b from-primary/30 via-transparent to-primary/50 z-[1]" />
 
       <div className="relative z-10 container-main text-center">
-        <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} className="mb-12 md:mb-16">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 backdrop-blur-sm mb-6">
-            <span className="text-accent text-xs font-medium tracking-[0.25em] uppercase">Koktélok</span>
+        <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="mb-10 md:mb-14">
+          <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 backdrop-blur-sm mb-4">
+            <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Koktélok</span>
           </div>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-semibold mb-5 text-glow">Koktél művészet</h2>
-          <p className="text-text-secondary text-base md:text-lg max-w-xl mx-auto">Klasszikus receptúrák és signature kreációk — minden koktél egy alkotás</p>
+          <h2 className="font-heading font-semibold mb-5 text-glow" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>Koktél művészet</h2>
+          <p className="text-text-secondary text-base md:text-lg max-w-2xl mx-auto">Klasszikus receptúrák és signature kreációk — minden koktél egy alkotás</p>
         </motion.div>
 
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 mb-12">
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-10">
           {cocktails.map((c) => (
             <motion.div key={c.name} variants={staggerItem} whileHover={{ y: -6, scale: 1.02 }} className="card-glass p-5 md:p-7">
-              <h3 className="font-heading text-sm md:text-lg font-semibold mb-1">{c.name}</h3>
+              <h3 className="font-heading text-sm md:text-lg font-semibold mb-2">{c.name}</h3>
               <p className="text-text-secondary text-xs md:text-sm">{c.desc}</p>
             </motion.div>
           ))}

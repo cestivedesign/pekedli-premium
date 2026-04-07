@@ -15,22 +15,22 @@ export default function Location() {
     <section className="section-padding relative noise-overlay">
       <div className="absolute inset-0 bg-gradient-to-b from-primary to-surface z-0" />
       <div className="container-main relative z-10">
-        <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} className="text-center mb-12 md:mb-16">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
-            <span className="text-accent text-xs font-medium tracking-[0.25em] uppercase">Látogass el</span>
+        <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="text-center mb-10 md:mb-14">
+          <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-4">
+            <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Látogass el</span>
           </div>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-semibold">Hol találsz meg</h2>
+          <h2 className="font-heading font-semibold" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>Hol találsz meg</h2>
         </motion.div>
 
-        <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}
-          className="grid md:grid-cols-2 card-3d overflow-hidden !rounded-3xl">
-          <div className="p-8 md:p-12 lg:p-14 space-y-8">
+        <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 card-3d overflow-hidden !rounded-3xl">
+          <div className="p-8 md:p-12 space-y-8">
             <h3 className="font-heading text-2xl md:text-3xl font-semibold">Nyitvatartás</h3>
             <div>
               {hours.map((h) => (
-                <div key={h.days} className="flex items-center justify-between py-3.5 border-b border-white/5 last:border-0">
+                <div key={h.days} className="flex items-center justify-between py-3.5 border-b border-white/[0.06] last:border-0">
                   <div className="flex items-center gap-3">
-                    <div className="w-7 h-7 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <div className="w-7 h-7 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
                       <Clock size={13} className="text-accent" />
                     </div>
                     <span className="text-text-primary text-sm md:text-base">{h.days}</span>
@@ -41,7 +41,7 @@ export default function Location() {
             </div>
             <div className="pt-4 border-t border-white/10 space-y-4">
               <div className="flex items-start gap-3">
-                <div className="w-7 h-7 rounded-lg bg-accent/10 flex items-center justify-center mt-0.5">
+                <div className="w-7 h-7 rounded-lg bg-accent/10 flex items-center justify-center mt-0.5 flex-shrink-0">
                   <MapPin size={13} className="text-accent" />
                 </div>
                 <div>

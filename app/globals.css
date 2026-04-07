@@ -36,20 +36,34 @@ body {
 /* Container */
 .container-main {
   width: 100%;
-  max-width: 1120px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 24px;
   padding-right: 24px;
 }
 @media (min-width: 768px) {
+  .container-main { padding-left: 40px; padding-right: 40px; }
+}
+@media (min-width: 1024px) {
   .container-main { padding-left: 48px; padding-right: 48px; }
 }
 
-/* Section spacing */
-.section-padding { padding-top: 120px; padding-bottom: 120px; }
+/* Section spacing — responsive */
+.section-padding { padding-top: 96px; padding-bottom: 96px; }
 @media (min-width: 768px) {
+  .section-padding { padding-top: 128px; padding-bottom: 128px; }
+}
+@media (min-width: 1024px) {
   .section-padding { padding-top: 160px; padding-bottom: 160px; }
+}
+
+/* Section divider */
+.section-divider {
+  width: 96px;
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.3), transparent);
 }
 
 /* ===== PREMIUM BUTTON STYLES ===== */

@@ -11,35 +11,40 @@ const images = [
   { src: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=80', alt: 'Italok', className: '' },
   { src: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&q=80', alt: 'Hangulat', className: '' },
   { src: 'https://images.unsplash.com/photo-1560512823-829485b8bf24?w=600&q=80', alt: 'Gin válogatás', className: '' },
-  { src: 'https://images.unsplash.com/photo-1598018553943-93a92b10d04d?w=800&q=80', alt: 'Bár pult', className: 'md:col-span-2' },
+  { src: 'https://images.unsplash.com/photo-1574006852726-31d021fded59?w=800&q=80', alt: 'Bár pult', className: 'md:col-span-2' },
 ];
 
 export default function Gallery() {
   return (
-    <section id="galeria" className="py-24 md:py-32 lg:py-40">
+    <section id="galeria" className="py-32 md:py-40 lg:py-48">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <motion.h2
+        <motion.div
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="font-heading text-4xl md:text-5xl font-semibold text-center mb-16"
+          className="text-center mb-16"
         >
-          A hangulat
-        </motion.h2>
+          <span className="block text-accent uppercase tracking-[0.2em] text-sm font-medium mb-4">
+            Galéria
+          </span>
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold">
+            A hangulat
+          </h2>
+        </motion.div>
 
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[180px] md:auto-rows-[220px]"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[180px] md:auto-rows-[240px]"
         >
           {images.map((img, i) => (
             <motion.div
               key={i}
               variants={staggerItem}
-              className={`relative rounded-lg overflow-hidden group cursor-pointer ${img.className}`}
+              className={`relative rounded-xl overflow-hidden group cursor-pointer ${img.className}`}
             >
               <Image
                 src={img.src}

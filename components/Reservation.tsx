@@ -25,12 +25,12 @@ export default function Reservation() {
   };
 
   const inputClasses =
-    'w-full bg-transparent border-b border-white/20 focus:border-accent text-text-primary py-3 outline-none transition-colors duration-300 placeholder:text-text-muted text-base';
+    'w-full bg-transparent border-b-2 border-white/10 focus:border-accent text-text-primary py-3 outline-none transition-colors duration-300 placeholder:text-text-muted text-base';
 
   return (
     <section
       id="foglalas"
-      className="py-24 md:py-32 lg:py-40 bg-gradient-to-b from-primary to-secondary-dark"
+      className="py-32 md:py-40 lg:py-48 bg-gradient-to-b from-primary to-secondary-dark"
     >
       <div className="max-w-3xl mx-auto px-6 md:px-12">
         <motion.div
@@ -38,11 +38,17 @@ export default function Reservation() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
+          <motion.span
+            variants={staggerItem}
+            className="block text-accent uppercase tracking-[0.2em] text-sm font-medium mb-4"
+          >
+            Foglalás
+          </motion.span>
           <motion.h2
             variants={staggerItem}
-            className="font-heading text-4xl md:text-5xl font-semibold mb-4"
+            className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold mb-4"
           >
             Foglalj asztalt
           </motion.h2>
@@ -60,11 +66,11 @@ export default function Reservation() {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           onSubmit={handleSubmit}
-          className="bg-surface/50 backdrop-blur-sm p-8 md:p-12 rounded-lg border border-white/5"
+          className="bg-surface/60 backdrop-blur-sm p-8 md:p-14 rounded-xl border border-white/5"
         >
-          <div className="grid md:grid-cols-2 gap-x-8 gap-y-6 mb-10">
+          <div className="grid md:grid-cols-2 gap-x-10 gap-y-8 mb-12">
             <div>
-              <label htmlFor="name" className="block text-sm text-text-secondary mb-2 font-medium">
+              <label htmlFor="name" className="block text-xs uppercase tracking-widest text-text-muted mb-3 font-medium">
                 Név
               </label>
               <input
@@ -80,7 +86,7 @@ export default function Reservation() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm text-text-secondary mb-2 font-medium">
+              <label htmlFor="email" className="block text-xs uppercase tracking-widest text-text-muted mb-3 font-medium">
                 Email
               </label>
               <input
@@ -96,7 +102,7 @@ export default function Reservation() {
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm text-text-secondary mb-2 font-medium">
+              <label htmlFor="phone" className="block text-xs uppercase tracking-widest text-text-muted mb-3 font-medium">
                 Telefon
               </label>
               <input
@@ -112,7 +118,7 @@ export default function Reservation() {
             </div>
 
             <div>
-              <label htmlFor="guests" className="block text-sm text-text-secondary mb-2 font-medium">
+              <label htmlFor="guests" className="block text-xs uppercase tracking-widest text-text-muted mb-3 font-medium">
                 Vendégszám
               </label>
               <select
@@ -135,7 +141,7 @@ export default function Reservation() {
             </div>
 
             <div>
-              <label htmlFor="date" className="block text-sm text-text-secondary mb-2 font-medium">
+              <label htmlFor="date" className="block text-xs uppercase tracking-widest text-text-muted mb-3 font-medium">
                 Dátum
               </label>
               <input
@@ -150,7 +156,7 @@ export default function Reservation() {
             </div>
 
             <div>
-              <label htmlFor="time" className="block text-sm text-text-secondary mb-2 font-medium">
+              <label htmlFor="time" className="block text-xs uppercase tracking-widest text-text-muted mb-3 font-medium">
                 Időpont
               </label>
               <select
@@ -179,7 +185,7 @@ export default function Reservation() {
             type="submit"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full bg-accent text-primary py-4 text-base md:text-lg font-medium tracking-wider uppercase hover:bg-accent-light transition-colors duration-300 shadow-lg shadow-accent/20"
+            className="w-full bg-accent text-primary py-5 text-base md:text-lg font-semibold tracking-wider uppercase hover:bg-accent-light transition-colors duration-300 shadow-lg shadow-accent/20 rounded-sm"
           >
             Asztal foglalása
           </motion.button>

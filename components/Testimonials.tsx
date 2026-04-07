@@ -36,17 +36,22 @@ export default function Testimonials() {
   }, [next]);
 
   return (
-    <section className="py-24 md:py-32 lg:py-40 bg-surface">
+    <section className="py-32 md:py-40 lg:py-48 bg-surface">
       <div className="max-w-3xl mx-auto px-6 md:px-12">
-        <motion.h2
+        <motion.div
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="font-heading text-4xl md:text-5xl font-semibold text-center mb-16"
+          className="text-center mb-16"
         >
-          Vendégeink mondták
-        </motion.h2>
+          <span className="block text-accent uppercase tracking-[0.2em] text-sm font-medium mb-4">
+            Vélemények
+          </span>
+          <h2 className="font-heading text-4xl md:text-5xl font-semibold">
+            Vendégeink mondták
+          </h2>
+        </motion.div>
 
         <motion.div
           variants={fadeInUp}
@@ -54,10 +59,10 @@ export default function Testimonials() {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
-          <div className="bg-primary-light p-8 md:p-12 rounded-lg border border-white/5 text-center min-h-[300px] flex flex-col items-center justify-center">
-            <div className="flex gap-1 mb-8">
+          <div className="bg-primary-light p-10 md:p-16 rounded-xl border border-white/5 text-center min-h-[320px] flex flex-col items-center justify-center">
+            <div className="flex gap-1.5 mb-10">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} size={20} className="text-accent fill-accent" />
+                <Star key={i} size={22} className="text-accent fill-accent" />
               ))}
             </div>
 
@@ -68,13 +73,13 @@ export default function Testimonials() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="max-w-xl mx-auto"
+                className="max-w-lg mx-auto"
               >
-                <p className="font-heading text-xl md:text-2xl italic leading-relaxed mb-8 text-text-primary">
+                <p className="font-heading text-xl md:text-2xl italic leading-relaxed mb-10 text-text-primary">
                   &ldquo;{testimonials[current].text}&rdquo;
                 </p>
-                <p className="text-text-secondary font-medium">
-                  &mdash; {testimonials[current].author}
+                <p className="text-text-primary font-medium text-base">
+                  {testimonials[current].author}
                 </p>
                 <p className="text-text-muted text-sm mt-1">
                   {testimonials[current].source}
@@ -83,7 +88,7 @@ export default function Testimonials() {
             </AnimatePresence>
           </div>
 
-          <div className="flex justify-center gap-3 mt-8">
+          <div className="flex justify-center gap-3 mt-10">
             {testimonials.map((_, i) => (
               <button
                 key={i}
@@ -91,7 +96,7 @@ export default function Testimonials() {
                 aria-label={`Vélemény ${i + 1}`}
                 className={`h-2.5 rounded-full transition-all duration-300 ${
                   i === current
-                    ? 'bg-accent w-8'
+                    ? 'bg-accent w-10'
                     : 'bg-white/20 hover:bg-white/40 w-2.5'
                 }`}
               />

@@ -12,7 +12,7 @@ const gins = [
     flag: '🏴󠁧󠁢󠁳󠁣󠁴󠁿',
     description: 'Uborka és rózsa jegyekkel',
     price: '2 800 Ft',
-    image: 'https://images.unsplash.com/photo-1608885898957-a559228e4b62?w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400&q=80',
   },
   {
     name: 'Roku',
@@ -28,7 +28,7 @@ const gins = [
     flag: '🇪🇸',
     description: 'Albariño szőlő, tengerparti gyógynövények',
     price: '2 500 Ft',
-    image: 'https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1560512823-829485b8bf24?w=400&q=80',
   },
   {
     name: 'Baigur',
@@ -44,7 +44,7 @@ const gins = [
     flag: '🇮🇹',
     description: 'Amalfi citrom és tengeri szellő',
     price: '2 500 Ft',
-    image: 'https://images.unsplash.com/photo-1587223962217-f4e4612be4a2?w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1598018553943-93a92b10d04d?w=400&q=80',
   },
   {
     name: 'Mrs. Millicent',
@@ -60,7 +60,7 @@ const gins = [
     flag: '🇬🇧',
     description: 'Markáns boróka karakterrel',
     price: '1 900 Ft',
-    image: 'https://images.unsplash.com/photo-1598018553943-93a92b10d04d?w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&q=80',
   },
   {
     name: 'Agárdi Cameleon',
@@ -68,7 +68,7 @@ const gins = [
     flag: '🇭🇺',
     description: 'Friss, virágos, fűszeres',
     price: '2 400 Ft',
-    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1574006852726-31d021fded59?w=400&q=80',
   },
 ];
 
@@ -76,6 +76,7 @@ export default function GinCarousel() {
   const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const cardWidth = 296;
   const gap = 24;
   const totalWidth = gins.length * (cardWidth + gap);
@@ -83,13 +84,18 @@ export default function GinCarousel() {
   useAnimationFrame((_, delta) => {
     if (isPaused) return;
     const current = x.get();
-    const newX = current - delta * 0.03;
-    x.set(newX <= -totalWidth ? 0 : newX);
+    const speed = hasInteracted ? 0.025 : 0.02;
+    const newX = current - delta * speed;
+    if (newX <= -totalWidth) {
+      x.set(newX + totalWidth);
+    } else {
+      x.set(newX);
+    }
   });
 
   return (
-    <section id="ginek" className="py-24 md:py-32 lg:py-40 bg-gradient-to-b from-secondary-dark to-primary overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12">
+    <section id="ginek" className="py-32 md:py-40 lg:py-48 bg-gradient-to-b from-secondary-dark to-primary overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-14">
         <motion.h2
           variants={fadeInUp}
           initial="hidden"
@@ -104,7 +110,7 @@ export default function GinCarousel() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="text-text-secondary text-lg"
+          className="text-text-secondary text-lg max-w-lg"
         >
           A világ minden tájáról, gondosan válogatva
         </motion.p>
@@ -114,26 +120,26 @@ export default function GinCarousel() {
         ref={containerRef}
         className="relative cursor-grab active:cursor-grabbing"
         onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
+        onMouseLeave={() => { setIsPaused(false); setHasInteracted(true); }}
         onTouchStart={() => setIsPaused(true)}
-        onTouchEnd={() => setIsPaused(false)}
+        onTouchEnd={() => { setIsPaused(false); setHasInteracted(true); }}
       >
         <motion.div
-          className="flex gap-6 pl-6 md:pl-12"
+          className="flex gap-6 px-6 md:px-12"
           style={{ x }}
           drag="x"
           dragConstraints={{ left: -totalWidth * 2, right: 100 }}
           dragElastic={0.1}
           onDragStart={() => setIsPaused(true)}
-          onDragEnd={() => setIsPaused(false)}
+          onDragEnd={() => { setIsPaused(false); setHasInteracted(true); }}
         >
-          {[...gins, ...gins].map((gin, i) => (
+          {[...gins, ...gins, ...gins].map((gin, i) => (
             <motion.div
               key={`${gin.name}-${i}`}
-              className="w-[280px] md:w-[296px] flex-shrink-0 bg-surface rounded-lg overflow-hidden border border-white/5 group"
+              className="w-[280px] md:w-[296px] flex-shrink-0 bg-surface rounded-xl overflow-hidden border border-white/5 group hover:border-accent/20 transition-all duration-500"
               whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
             >
-              <div className="relative h-44 overflow-hidden bg-primary-light">
+              <div className="relative h-48 overflow-hidden bg-primary-light">
                 <Image
                   src={gin.image}
                   alt={gin.name}
@@ -141,27 +147,27 @@ export default function GinCarousel() {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="296px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent" />
               </div>
-              <div className="p-5">
-                <div className="flex items-center justify-between mb-1">
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
                   <h3 className="font-heading text-lg font-semibold truncate mr-2">
                     {gin.name}
                   </h3>
                   <span className="text-xl flex-shrink-0">{gin.flag}</span>
                 </div>
-                <p className="text-text-muted text-xs uppercase tracking-wider mb-2">{gin.origin}</p>
-                <p className="text-text-secondary text-sm leading-relaxed mb-3">
+                <p className="text-text-muted text-xs uppercase tracking-widest mb-3">{gin.origin}</p>
+                <p className="text-text-secondary text-sm leading-relaxed mb-4">
                   {gin.description}
                 </p>
-                <p className="text-accent font-semibold text-sm">{gin.price} / 4cl</p>
+                <p className="text-accent font-semibold">{gin.price} <span className="text-text-muted font-normal text-xs">/ 4cl</span></p>
               </div>
             </motion.div>
           ))}
         </motion.div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-12">
         <motion.a
           variants={fadeInUp}
           initial="hidden"

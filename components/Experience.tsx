@@ -2,13 +2,12 @@
 
 import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Wine, GlassWater, Beer } from 'lucide-react';
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 
 function CountUp({ target, prefix = '', suffix = '' }: { target: number; prefix?: string; suffix?: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-100px' });
+  const inView = useInView(ref, { once: true, margin: '-50px' });
 
   useEffect(() => {
     if (!inView) return;
@@ -34,9 +33,42 @@ function CountUp({ target, prefix = '', suffix = '' }: { target: number; prefix?
   );
 }
 
+function GinIcon() {
+  return (
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
+      <path d="M8 2h8l-2 7H10L8 2z"/>
+      <path d="M10 9l-2 9c-.2.9.5 2 1.5 2h5c1 0 1.7-1.1 1.5-2L14 9"/>
+      <path d="M10 13h4"/>
+    </svg>
+  );
+}
+
+function CocktailIcon() {
+  return (
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
+      <path d="M8 2l8 8-4 4"/>
+      <path d="M4 6l16 0"/>
+      <path d="M12 14v6"/>
+      <path d="M8 20h8"/>
+      <path d="M7 6l5 5"/>
+    </svg>
+  );
+}
+
+function BeerIcon() {
+  return (
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
+      <path d="M17 11h1a3 3 0 010 6h-1"/>
+      <path d="M9 12a1 1 0 011-1h4a1 1 0 011 1v6a2 2 0 01-2 2h-2a2 2 0 01-2-2v-6z"/>
+      <path d="M7 7h10l-1 4H8L7 7z"/>
+      <path d="M9 7V5a1 1 0 011-1h4a1 1 0 011 1v2"/>
+    </svg>
+  );
+}
+
 const cards = [
   {
-    icon: Wine,
+    icon: GinIcon,
     number: 30,
     prefix: '',
     suffix: '+',
@@ -44,7 +76,7 @@ const cards = [
     description: 'A világ legjobb ginpárlataival várunk, Skóciától Japánig.',
   },
   {
-    icon: GlassWater,
+    icon: CocktailIcon,
     number: 40,
     prefix: '~',
     suffix: '',
@@ -52,7 +84,7 @@ const cards = [
     description: 'Klasszikus receptúrák és saját signature kreációk.',
   },
   {
-    icon: Beer,
+    icon: BeerIcon,
     number: 5,
     prefix: '',
     suffix: '',
@@ -63,51 +95,54 @@ const cards = [
 
 export default function Experience() {
   return (
-    <section id="kinalat" className="py-24 md:py-32 lg:py-40 bg-surface">
+    <section id="kinalat" className="py-32 md:py-40 lg:py-48 bg-surface">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <motion.h2
+        <motion.div
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="font-heading text-4xl md:text-5xl font-semibold text-center mb-16"
+          className="text-center mb-20"
         >
-          Fedezd fel a kínálatunkat
-        </motion.h2>
+          <span className="block text-accent uppercase tracking-[0.2em] text-sm font-medium mb-4">
+            Kínálatunk
+          </span>
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold">
+            Fedezd fel a kínálatunkat
+          </h2>
+        </motion.div>
 
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid md:grid-cols-3 gap-6 md:gap-8"
+          className="grid md:grid-cols-3 gap-6 md:gap-8 lg:gap-10"
         >
           {cards.map((card) => (
             <motion.div
               key={card.title}
               variants={staggerItem}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="bg-primary-light p-8 md:p-10 border border-white/5 rounded-lg group cursor-pointer hover:shadow-2xl hover:shadow-accent/10 hover:border-accent/20 transition-all duration-500"
+              className="bg-primary-light p-10 md:p-12 border border-white/5 rounded-xl group cursor-pointer hover:shadow-2xl hover:shadow-accent/10 hover:border-accent/20 transition-all duration-500"
             >
-              <card.icon
-                size={32}
-                className="text-accent mb-6"
-                strokeWidth={1.5}
-              />
+              <div className="mb-8">
+                <card.icon />
+              </div>
 
-              <div className="font-heading text-5xl font-bold text-accent mb-4">
+              <div className="font-heading text-6xl md:text-7xl font-bold text-accent mb-6 leading-none">
                 <CountUp target={card.number} prefix={card.prefix} suffix={card.suffix} />
               </div>
 
-              <h3 className="font-heading text-xl md:text-2xl font-semibold mb-3">
+              <h3 className="font-heading text-2xl font-semibold mb-4">
                 {card.title}
               </h3>
 
-              <p className="text-text-secondary leading-relaxed mb-6">
+              <p className="text-text-secondary text-base leading-relaxed mb-8">
                 {card.description}
               </p>
 
-              <span className="text-accent text-sm font-medium tracking-wide uppercase flex items-center gap-2 group-hover:gap-3 transition-all duration-300">
+              <span className="text-accent text-sm font-medium tracking-wide uppercase flex items-center gap-2 group-hover:gap-4 transition-all duration-300">
                 Felfedezés
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   &rarr;

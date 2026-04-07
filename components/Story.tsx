@@ -6,18 +6,18 @@ import { fadeInLeft, staggerContainer, staggerItem } from '@/lib/animations';
 
 export default function Story() {
   return (
-    <section className="py-24 md:py-32 lg:py-40">
+    <section className="py-32 md:py-40 lg:py-48">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center"
+          className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center"
         >
           <motion.div
             variants={fadeInLeft}
-            className="relative rounded-lg overflow-hidden aspect-[4/5]"
+            className="relative rounded-xl overflow-hidden aspect-[4/5]"
           >
             <Image
               src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80"
@@ -33,7 +33,7 @@ export default function Story() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
-            className="space-y-6"
+            className="space-y-8"
           >
             <motion.span
               variants={staggerItem}
@@ -44,10 +44,12 @@ export default function Story() {
 
             <motion.h2
               variants={staggerItem}
-              className="font-heading text-4xl md:text-5xl font-semibold leading-tight"
+              className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1]"
             >
-              Több mint egy bár
+              Több mint<br />egy bár
             </motion.h2>
+
+            <motion.div variants={staggerItem} className="w-16 h-[2px] bg-accent" />
 
             <motion.p
               variants={staggerItem}

@@ -60,7 +60,7 @@ const gins = [
     flag: '🇬🇧',
     description: 'Markáns boróka karakterrel',
     price: '1 900 Ft',
-    image: 'https://images.unsplash.com/photo-1574006852726-31d021fded59?w=400&q=80',
+    image: 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?w=400&q=80',
   },
   {
     name: 'Agárdi Cameleon',
@@ -95,14 +95,13 @@ export default function GinCarousel() {
   const scroll = (dir: 'left' | 'right') => {
     const el = scrollRef.current;
     if (!el) return;
-    const amount = 320;
-    el.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' });
+    el.scrollBy({ left: dir === 'left' ? -320 : 320, behavior: 'smooth' });
   };
 
   return (
-    <section id="ginek" className="py-32 md:py-40 lg:py-48 bg-gradient-to-b from-secondary-dark to-primary overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-14">
-        <div className="flex items-end justify-between">
+    <section id="ginek" className="py-32 md:py-40 lg:py-48 bg-gradient-to-b from-secondary-dark to-primary">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <motion.div
             variants={fadeInUp}
             initial="hidden"
@@ -120,7 +119,7 @@ export default function GinCarousel() {
             </p>
           </motion.div>
 
-          <div className="hidden md:flex gap-3">
+          <div className="hidden md:flex gap-3 flex-shrink-0">
             <button
               onClick={() => scroll('left')}
               disabled={!canScrollLeft}
@@ -139,56 +138,55 @@ export default function GinCarousel() {
             </button>
           </div>
         </div>
-      </div>
 
-      <div
-        ref={scrollRef}
-        className="flex gap-6 overflow-x-auto px-6 md:px-12 pb-4 scrollbar-hide snap-x snap-mandatory"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        {gins.map((gin) => (
-          <div
-            key={gin.name}
-            className="w-[280px] md:w-[300px] flex-shrink-0 bg-surface rounded-2xl overflow-hidden border border-white/[0.06] group hover:border-accent/20 transition-all duration-500 snap-start"
-          >
-            <div className="relative h-52 overflow-hidden bg-primary-light">
-              <Image
-                src={gin.image}
-                alt={gin.name}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                sizes="300px"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-surface/90 via-transparent to-transparent" />
-            </div>
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="font-heading text-lg font-semibold truncate mr-2">
-                  {gin.name}
-                </h3>
-                <span className="text-xl flex-shrink-0">{gin.flag}</span>
-              </div>
-              <p className="text-text-muted text-xs uppercase tracking-widest mb-3">{gin.origin}</p>
-              <p className="text-text-secondary text-sm leading-relaxed mb-4">
-                {gin.description}
-              </p>
-              <p className="text-accent font-semibold">{gin.price} <span className="text-text-muted font-normal text-xs">/ 4cl</span></p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mt-12">
-        <motion.a
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          href="#"
-          className="text-accent hover:text-accent-light text-sm font-medium tracking-wide uppercase underline underline-offset-8 decoration-accent/30 hover:decoration-accent transition-all duration-300"
+        <div
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory -mx-6 px-6 md:-mx-12 md:px-12"
         >
-          Teljes gin menü &rarr;
-        </motion.a>
+          {gins.map((gin) => (
+            <div
+              key={gin.name}
+              className="w-[280px] md:w-[300px] flex-shrink-0 bg-surface rounded-2xl overflow-hidden border border-white/[0.06] group hover:border-accent/20 transition-all duration-500 snap-start"
+            >
+              <div className="relative h-52 overflow-hidden bg-primary-light">
+                <Image
+                  src={gin.image}
+                  alt={gin.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="300px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface/90 via-transparent to-transparent" />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="font-heading text-lg font-semibold truncate mr-2">
+                    {gin.name}
+                  </h3>
+                  <span className="text-xl flex-shrink-0">{gin.flag}</span>
+                </div>
+                <p className="text-text-muted text-xs uppercase tracking-widest mb-3">{gin.origin}</p>
+                <p className="text-text-secondary text-sm leading-relaxed mb-4">
+                  {gin.description}
+                </p>
+                <p className="text-accent font-semibold">{gin.price} <span className="text-text-muted font-normal text-xs">/ 4cl</span></p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12">
+          <motion.a
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            href="#"
+            className="text-accent hover:text-accent-light text-sm font-medium tracking-wide uppercase underline underline-offset-8 decoration-accent/30 hover:decoration-accent transition-all duration-300"
+          >
+            Teljes gin menü &rarr;
+          </motion.a>
+        </div>
       </div>
     </section>
   );

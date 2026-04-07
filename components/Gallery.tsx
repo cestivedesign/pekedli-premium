@@ -11,7 +11,7 @@ const images = [
   { src: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=80', alt: 'Italok', className: '' },
   { src: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&q=80', alt: 'Hangulat', className: '' },
   { src: 'https://images.unsplash.com/photo-1560512823-829485b8bf24?w=600&q=80', alt: 'Gin válogatás', className: '' },
-  { src: 'https://images.unsplash.com/photo-1574006852726-31d021fded59?w=800&q=80', alt: 'Bár pult', className: 'md:col-span-2' },
+  { src: 'https://images.unsplash.com/photo-1575444758702-4a6b9222336e?w=800&q=80', alt: 'Bár pult', className: 'md:col-span-2' },
 ];
 
 export default function Gallery() {

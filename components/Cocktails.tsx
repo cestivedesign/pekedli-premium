@@ -27,7 +27,7 @@ export default function Cocktails() {
         className="absolute inset-[-15%] z-0"
       >
         <Image
-          src="https://images.unsplash.com/photo-1574006852726-31d021fded59?w=1920&q=80"
+          src="https://images.unsplash.com/photo-1516997121675-4c2d1684aa3e?w=1920&q=80"
           alt="Koktélkészítés"
           fill
           className="object-cover"

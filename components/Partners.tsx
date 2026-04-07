@@ -11,8 +11,8 @@ const partnerLogos = Array.from({ length: 12 }, (_, i) => ({
 
 export default function Partners() {
   return (
-    <section className="py-20 md:py-28 lg:py-32 bg-surface overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 mb-12">
+    <section className="py-24 md:py-32 lg:py-36 bg-surface overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 mb-12">
         <motion.h2
           variants={fadeInUp}
           initial="hidden"

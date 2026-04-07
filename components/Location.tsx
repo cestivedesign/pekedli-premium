@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Clock, MapPin, Navigation } from 'lucide-react';
-import { fadeInLeft, fadeInRight, staggerContainer } from '@/lib/animations';
+import { fadeInUp } from '@/lib/animations';
 
 const hours = [
   { days: 'Hétfő — Csütörtök', time: '16:00 — 24:00' },
@@ -15,24 +15,31 @@ export default function Location() {
     <section className="py-32 md:py-40 lg:py-48">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <motion.div
-          variants={staggerContainer}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          className="text-center mb-16"
+        >
+          <span className="block text-accent uppercase tracking-[0.25em] text-xs font-medium mb-5">
+            Látogass el
+          </span>
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold">
+            Hol találsz meg
+          </h2>
+        </motion.div>
+
+        <motion.div
+          variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           className="grid md:grid-cols-2 rounded-2xl overflow-hidden border border-white/[0.06]"
         >
-          <motion.div
-            variants={fadeInLeft}
-            className="bg-surface p-10 md:p-14 lg:p-16 space-y-10"
-          >
-            <div>
-              <span className="block text-accent uppercase tracking-[0.25em] text-xs font-medium mb-5">
-                Látogass el
-              </span>
-              <h2 className="font-heading text-4xl md:text-5xl font-semibold">
-                Nyitvatartás
-              </h2>
-            </div>
+          <div className="bg-surface p-10 md:p-14 lg:p-16 space-y-10">
+            <h3 className="font-heading text-3xl font-semibold">
+              Nyitvatartás
+            </h3>
 
             <div className="space-y-0">
               {hours.map((item) => (
@@ -68,12 +75,9 @@ export default function Location() {
                 Útvonal tervezés
               </a>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={fadeInRight}
-            className="relative min-h-[350px] md:min-h-[500px] bg-primary-light"
-          >
+          <div className="relative min-h-[350px] md:min-h-[500px] bg-primary-light">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2719.1!2d17.9085!3d47.0932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDA1JzM1LjUiTiAxN8KwNTQnMzAuNiJF!5e0!3m2!1shu!2shu!4v1"
               className="absolute inset-0 w-full h-full border-0"
@@ -83,7 +87,7 @@ export default function Location() {
               title="Pekedli Bar & Lounge - Térkép"
               style={{ filter: 'invert(90%) hue-rotate(180deg) saturate(0.3) brightness(0.8)' }}
             />
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -37,7 +37,7 @@ export default function Testimonials() {
 
   return (
     <section className="py-32 md:py-40 lg:py-48 bg-surface">
-      <div className="max-w-3xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
         <motion.div
           variants={fadeInUp}
           initial="hidden"
@@ -58,9 +58,10 @@ export default function Testimonials() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
+          className="max-w-3xl mx-auto"
         >
           <div className="bg-primary p-10 md:p-16 rounded-2xl border border-white/[0.06] text-center min-h-[340px] flex flex-col items-center justify-center">
-            <div className="flex gap-1.5 mb-10">
+            <div className="flex gap-1.5 mb-10 justify-center">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} size={22} className="text-accent fill-accent" />
               ))}

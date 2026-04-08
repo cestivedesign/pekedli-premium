@@ -43,17 +43,17 @@ export default function Experience() {
           </h2>
         </motion.div>
 
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-10">
           {cards.map((card) => (
             <motion.div key={card.title} variants={staggerItem} className="card-3d p-8 md:p-10 text-center group cursor-pointer">
               <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center ring-1 ring-accent/10 group-hover:ring-accent/30 transition-all duration-500">
                 <card.icon size={28} strokeWidth={1.3} className="text-accent" />
               </div>
-              <div className="font-heading text-5xl md:text-6xl font-bold text-accent mb-4 leading-none text-glow">
+              <div className="font-heading text-5xl md:text-6xl font-bold text-accent mb-5 leading-none text-glow">
                 <CountUp target={card.number} prefix={card.prefix} suffix={card.suffix} />
               </div>
-              <h3 className="font-heading text-xl md:text-2xl font-semibold mb-3">{card.title}</h3>
-              <p className="text-text-secondary text-sm md:text-base leading-relaxed mb-6">{card.desc}</p>
+              <h3 className="font-heading text-xl md:text-2xl font-semibold mb-4">{card.title}</h3>
+              <p className="text-text-secondary text-sm md:text-base leading-relaxed mb-8">{card.desc}</p>
               <span className="text-accent text-sm font-medium tracking-wide uppercase inline-flex items-center gap-2 group-hover:gap-4 transition-all duration-300">
                 Felfedezés <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
               </span>

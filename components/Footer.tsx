@@ -28,8 +28,8 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-primary-dark">
-      <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="container-main pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-10">
+      <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="container-main pt-20 pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 mb-14">
           <motion.div variants={staggerItem} className="space-y-4">
             <Image src="https://pekedli.hu/wp-content/uploads/2024/08/logo_uj_vilagos.png" alt="Pekedli" width={140} height={48} className="h-10 w-auto object-contain" />
             <p className="text-text-secondary text-sm leading-relaxed max-w-xs">Prémium gin bár és lounge Veszprém szívében. Ahol minden korty egy történet.</p>
@@ -53,7 +53,7 @@ export default function Footer() {
             </div>
           </motion.div>
         </div>
-        <motion.div variants={staggerItem} className="border-t border-white/10 pt-8 text-center">
+        <motion.div variants={staggerItem} className="border-t border-white/10 pt-10 text-center">
           <p className="text-sm text-text-muted">&copy; 2023&ndash;2026 Pekedli Bar &amp; Lounge. Minden jog fenntartva.</p>
         </motion.div>
       </motion.div>

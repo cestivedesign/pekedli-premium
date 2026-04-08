@@ -11,8 +11,8 @@ const logos = Array.from({ length: 12 }, (_, i) => ({
 
 export default function Partners() {
   return (
-    <section className="py-20 md:py-28 bg-surface overflow-hidden">
-      <div className="container-main mb-10">
+    <section className="py-24 md:py-32 bg-surface overflow-hidden">
+      <div className="container-main mb-14">
         <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}
           className="font-heading text-4xl md:text-5xl font-semibold text-center">
           Partnereink

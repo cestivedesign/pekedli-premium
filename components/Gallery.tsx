@@ -26,7 +26,7 @@ export default function Gallery() {
           <h2 className="font-heading font-semibold" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>A hangulat</h2>
         </motion.div>
 
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[160px] md:auto-rows-[220px]">
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 auto-rows-[170px] md:auto-rows-[240px]">
           {images.map((img, i) => (
             <motion.div key={i} variants={staggerItem} className={`relative rounded-2xl overflow-hidden group cursor-pointer ring-1 ring-white/[0.04] ${img.span}`}>
               <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes={img.span.includes('col-span') ? '50vw' : '25vw'} />

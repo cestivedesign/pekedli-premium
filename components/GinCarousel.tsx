@@ -47,26 +47,26 @@ export default function GinCarousel() {
           </div>
         </div>
 
-        <div ref={scrollRef} className="flex gap-6 md:gap-8 overflow-x-auto pb-2 scrollbar-hide snap-x snap-mandatory">
+        <div ref={scrollRef} className="flex gap-7 md:gap-9 overflow-x-auto pb-2 scrollbar-hide snap-x snap-mandatory">
           {gins.map((gin) => (
             <div key={gin.name} className="w-[280px] md:w-[300px] flex-shrink-0 card-3d group snap-start">
               <div className="relative h-48 overflow-hidden">
                 <Image src={gin.image} alt={gin.name} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="300px" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent" />
               </div>
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
+              <div className="p-7">
+                <div className="flex items-center justify-between mb-3">
                   <h3 className="font-heading text-lg font-semibold truncate mr-2">{gin.name}</h3>
                   <span className="text-lg flex-shrink-0">{gin.flag}</span>
                 </div>
-                <p className="text-text-muted text-[10px] uppercase tracking-widest mb-3">{gin.origin}</p>
-                <p className="text-text-secondary text-sm leading-relaxed mb-4">{gin.desc}</p>
+                <p className="text-text-muted text-[10px] uppercase tracking-widest mb-4">{gin.origin}</p>
+                <p className="text-text-secondary text-sm leading-relaxed mb-5">{gin.desc}</p>
                 <p className="text-accent font-semibold text-sm mt-auto">{gin.price} <span className="text-text-muted font-normal text-xs">/ 4cl</span></p>
               </div>
             </div>
           ))}
         </div>
-        <div className="mt-12">
+        <div className="mt-16">
           <a href="#" className="btn-outline text-xs py-3 px-6">Teljes gin menü &rarr;</a>
         </div>
       </div>

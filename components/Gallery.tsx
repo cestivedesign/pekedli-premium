@@ -19,14 +19,14 @@ export default function Gallery() {
     <section id="galeria" className="section-padding relative noise-overlay">
       <div className="absolute inset-0 bg-gradient-to-b from-primary to-surface z-0" />
       <div className="container-main relative z-10">
-        <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="text-center mb-10 md:mb-14">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-4">
+        <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="text-center mb-14 md:mb-20">
+          <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-8">
             <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Galéria</span>
           </div>
           <h2 className="font-heading font-semibold" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>A hangulat</h2>
         </motion.div>
 
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 auto-rows-[170px] md:auto-rows-[240px]">
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 auto-rows-[200px] md:auto-rows-[280px]">
           {images.map((img, i) => (
             <motion.div key={i} variants={staggerItem} className={`relative rounded-2xl overflow-hidden group cursor-pointer ring-1 ring-white/[0.04] ${img.span}`}>
               <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes={img.span.includes('col-span') ? '50vw' : '25vw'} />

@@ -28,19 +28,19 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-primary-dark">
-      <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="container-main pt-20 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 mb-14">
-          <motion.div variants={staggerItem} className="space-y-4">
+      <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="container-main pt-28 pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-20 mb-20">
+          <motion.div variants={staggerItem} className="space-y-6">
             <Image src="https://pekedli.hu/wp-content/uploads/2024/08/logo_uj_vilagos.png" alt="Pekedli" width={140} height={48} className="h-10 w-auto object-contain" />
             <p className="text-text-secondary text-sm leading-relaxed max-w-xs">Prémium gin bár és lounge Veszprém szívében. Ahol minden korty egy történet.</p>
           </motion.div>
-          <motion.div variants={staggerItem} className="space-y-4">
+          <motion.div variants={staggerItem} className="space-y-6">
             <h3 className="font-heading text-base font-semibold">Navigáció</h3>
-            <nav className="flex flex-col gap-2.5">
+            <nav className="flex flex-col gap-4">
               {footerLinks.map((l) => <a key={l.href} href={l.href} className="text-text-secondary hover:text-accent text-sm transition-colors w-fit">{l.label}</a>)}
             </nav>
           </motion.div>
-          <motion.div variants={staggerItem} className="space-y-4">
+          <motion.div variants={staggerItem} className="space-y-6">
             <h3 className="font-heading text-base font-semibold">Kapcsolat</h3>
             <p className="text-sm text-text-secondary">8200 Veszprém</p>
             <p className="text-sm text-text-secondary">Rákóczi Ferenc utca 1</p>
@@ -53,7 +53,7 @@ export default function Footer() {
             </div>
           </motion.div>
         </div>
-        <motion.div variants={staggerItem} className="border-t border-white/10 pt-10 text-center">
+        <motion.div variants={staggerItem} className="border-t border-white/10 pt-14 text-center">
           <p className="text-sm text-text-muted">&copy; 2023&ndash;2026 Pekedli Bar &amp; Lounge. Minden jog fenntartva.</p>
         </motion.div>
       </motion.div>

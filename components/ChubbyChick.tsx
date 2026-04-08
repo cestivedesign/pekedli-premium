@@ -9,8 +9,8 @@ export default function ChubbyChick() {
     <section className="section-padding relative noise-overlay overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-secondary-dark via-secondary-dark to-primary z-0" />
       <div className="container-main relative z-10">
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-          <motion.div variants={fadeInLeft} className="space-y-5 md:space-y-6 order-2 md:order-1">
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-28 items-center">
+          <motion.div variants={fadeInLeft} className="space-y-8 md:space-y-10 order-2 md:order-1">
             <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5">
               <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Food Partner</span>
             </div>
@@ -18,7 +18,7 @@ export default function ChubbyChick() {
             <div className="accent-line" />
             <p className="text-base md:text-lg text-text-secondary leading-relaxed">Éhes vagy? A Chubby Chick friss street food kreációi tökéletesen kiegészítik az italélményt.</p>
             <p className="text-text-secondary leading-relaxed">Izgalmas ízvilágok, gondosan összeállított menü — mert a tökéletes este nem csak az italokról szól.</p>
-            <div className="pt-2">
+            <div className="pt-6">
               <a href="#" className="btn-outline">Menü megtekintése &rarr;</a>
             </div>
           </motion.div>

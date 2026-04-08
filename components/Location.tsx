@@ -16,15 +16,15 @@ export default function Location() {
       <div className="absolute inset-0 bg-gradient-to-b from-primary to-surface z-0" />
       <div className="container-main relative z-10">
         <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="text-center mb-10 md:mb-14">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-4">
-            <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Látogass el</span>
+          <div className="inline-block whitespace-nowrap px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-4">
+            <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Kapcsolat & Nyitvatartás</span>
           </div>
           <h2 className="font-heading font-semibold" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>Hol találsz meg</h2>
         </motion.div>
 
         <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-2 card-3d overflow-hidden !rounded-3xl">
-          <div className="p-8 md:p-12 space-y-8">
+          <div className="p-6 md:p-10 lg:p-12 space-y-8">
             <h3 className="font-heading text-2xl md:text-3xl font-semibold">Nyitvatartás</h3>
             <div>
               {hours.map((h) => (

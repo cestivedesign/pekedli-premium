@@ -22,7 +22,7 @@ export default function Testimonials() {
       <div className="absolute inset-0 bg-gradient-to-b from-surface via-surface to-primary z-0" />
       <div className="container-main relative z-10">
         <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="text-center mb-14 md:mb-20">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-8">
+          <div className="inline-block whitespace-nowrap px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-8">
             <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Vélemények</span>
           </div>
           <h2 className="font-heading font-semibold" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>Vendégeink mondták</h2>
@@ -30,7 +30,7 @@ export default function Testimonials() {
 
         <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="max-w-3xl mx-auto">
           <div className="relative">
-            <div className="card-3d p-14 md:p-20 text-center min-h-[400px] flex flex-col items-center justify-center !rounded-3xl">
+            <div className="card-3d p-8 md:p-14 lg:p-20 text-center min-h-[400px] flex flex-col items-center justify-center !rounded-3xl">
               {/* Decorative quote */}
               <div className="font-heading text-6xl text-accent/20 leading-none mb-8">&ldquo;</div>
               <div className="flex gap-1 mb-10 justify-center">

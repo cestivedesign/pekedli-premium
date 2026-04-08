@@ -21,7 +21,7 @@ export default function Story() {
           </motion.div>
 
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="space-y-8 md:space-y-10">
-            <motion.div variants={staggerItem} className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5">
+            <motion.div variants={staggerItem} className="inline-block whitespace-nowrap px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5">
               <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">EST. 2023 &middot; VESZPRÉM</span>
             </motion.div>
             <motion.h2 variants={staggerItem} className="font-heading font-semibold leading-[1.15]" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>

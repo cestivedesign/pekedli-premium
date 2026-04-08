@@ -11,8 +11,8 @@ export default function ChubbyChick() {
       <div className="container-main relative z-10">
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-28 items-center">
           <motion.div variants={fadeInLeft} className="space-y-8 md:space-y-10 order-2 md:order-1">
-            <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5">
-              <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Food Partner</span>
+            <div className="inline-block whitespace-nowrap px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5">
+              <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Pekedli x Chubby</span>
             </div>
             <h2 className="font-heading font-semibold leading-[1.15]" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>Chubby Chick</h2>
             <div className="accent-line" />

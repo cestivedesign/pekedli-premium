@@ -27,34 +27,34 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.8 }}
-            className="inline-block mb-12 px-5 py-2 rounded-full border border-accent/30 bg-accent/5 backdrop-blur-sm"
+            className="inline-block whitespace-nowrap mb-8 px-5 py-2 rounded-full border border-accent/30 bg-accent/5 backdrop-blur-sm"
           >
             <span className="text-accent text-xs font-medium tracking-[0.25em] uppercase">Est. 2023 &middot; Veszprém</span>
           </motion.div>
 
           {/* Headline — two lines */}
-          <h1 className="font-heading font-bold leading-[1.2] tracking-[-0.02em] mb-14" style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)' }}>
-            <span className="block">
+          <h1 className="font-heading font-bold leading-[1.2] tracking-[-0.02em] mb-8" style={{ fontSize: 'clamp(2.5rem, 6vw, 5.5rem)' }}>
+            <span className="flex flex-wrap justify-center gap-x-[0.3em]">
               {line1.map((word, i) => (
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  className="inline-block mr-[0.5em]"
+                  className="inline-block"
                 >
                   {word}
                 </motion.span>
               ))}
             </span>
-            <span className="block">
+            <span className="flex flex-wrap justify-center gap-x-[0.3em]">
               {line2.map((word, i) => (
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.66 + i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  className="inline-block mr-[0.5em] last:mr-0"
+                  className="inline-block"
                 >
                   {word}
                 </motion.span>
@@ -67,7 +67,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0, duration: 0.8 }}
-            className="text-base md:text-lg text-text-secondary mb-16 tracking-[0.06em]"
+            className="text-base md:text-lg text-text-secondary mb-10 tracking-[0.06em]"
           >
             30+ prémium gin &middot; Signature koktélok &middot; Veszprém szívében
           </motion.p>
@@ -77,7 +77,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.3, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-10"
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <a href="#foglalas" className="btn-primary">Foglalj asztalt</a>
             <a href="#kinalat" className="btn-outline">Kínálatunk</a>

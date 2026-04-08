@@ -35,7 +35,7 @@ export default function Experience() {
       <div className="absolute inset-0 bg-gradient-to-b from-surface via-surface to-primary z-0" />
       <div className="container-main relative z-10">
         <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="text-center mb-16 md:mb-24">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-8">
+          <div className="inline-block whitespace-nowrap px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-8">
             <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Kínálatunk</span>
           </div>
           <h2 className="font-heading font-semibold text-glow mb-6" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
@@ -45,7 +45,7 @@ export default function Experience() {
 
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
           {cards.map((card) => (
-            <motion.div key={card.title} variants={staggerItem} className="card-3d p-10 md:p-14 text-center group cursor-pointer">
+            <motion.div key={card.title} variants={staggerItem} className="card-3d p-6 md:p-10 lg:p-14 text-center group cursor-pointer">
               <div className="w-16 h-16 mx-auto mb-10 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center ring-1 ring-accent/10 group-hover:ring-accent/30 transition-all duration-500">
                 <card.icon size={28} strokeWidth={1.3} className="text-accent" />
               </div>

@@ -31,7 +31,7 @@ export default function GinCarousel() {
       <div className="container-main relative z-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14 md:mb-20">
           <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
-            <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
+            <div className="inline-block whitespace-nowrap px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-6">
               <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Gin kollekció</span>
             </div>
             <h2 className="font-heading font-semibold mb-6 text-glow" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>Válogatott ginek</h2>
@@ -47,14 +47,14 @@ export default function GinCarousel() {
           </div>
         </div>
 
-        <div ref={scrollRef} className="flex gap-10 md:gap-12 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+        <div ref={scrollRef} className="flex gap-10 md:gap-12 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory -mx-[36px] px-[36px] md:-mx-[56px] md:px-[56px] lg:-mx-[72px] lg:px-[72px]">
           {gins.map((gin) => (
             <div key={gin.name} className="w-[300px] md:w-[340px] flex-shrink-0 card-3d group snap-start">
               <div className="relative h-56 overflow-hidden">
                 <Image src={gin.image} alt={gin.name} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="300px" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent" />
               </div>
-              <div className="p-8">
+              <div className="p-6 md:p-8">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-heading text-lg font-semibold truncate mr-2">{gin.name}</h3>
                   <span className="text-lg flex-shrink-0">{gin.flag}</span>

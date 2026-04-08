@@ -14,16 +14,16 @@ export default function Reservation() {
       <div className="absolute inset-0 bg-gradient-to-b from-primary via-secondary-dark/30 to-secondary-dark z-0" />
       <div className="container-main relative z-10">
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="text-center mb-16 md:mb-24">
-          <motion.div variants={staggerItem} className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-4">
-            <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Foglalás</span>
+          <motion.div variants={staggerItem} className="inline-block whitespace-nowrap px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 mb-4">
+            <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Asztalfoglalás</span>
           </motion.div>
           <motion.h2 variants={staggerItem} className="font-heading font-semibold mb-8 text-glow" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>Foglalj asztalt</motion.h2>
           <motion.p variants={staggerItem} className="text-text-secondary text-base md:text-lg">Garantáld a helyed egy felejthetetlen estéhez</motion.p>
         </motion.div>
 
         <motion.form variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}
-          onSubmit={(e) => e.preventDefault()} className="w-full max-w-5xl mx-auto card-3d p-14 md:p-20 lg:p-24 !rounded-3xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-14 mb-20">
+          onSubmit={(e) => e.preventDefault()} className="w-full max-w-5xl mx-auto card-3d p-8 md:p-16 lg:p-24 !rounded-3xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mb-10">
             {[
               { id: 'name', label: 'Név', type: 'text', ph: 'Teljes neved' },
               { id: 'email', label: 'Email', type: 'email', ph: 'email@pelda.hu' },

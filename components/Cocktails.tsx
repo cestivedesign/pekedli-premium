@@ -27,7 +27,7 @@ export default function Cocktails() {
 
       <div className="relative z-10 container-main text-center">
         <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="mb-14 md:mb-20">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 backdrop-blur-sm mb-8">
+          <div className="inline-block whitespace-nowrap px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 backdrop-blur-sm mb-8">
             <span className="text-accent text-xs md:text-sm tracking-[0.2em] uppercase">Koktélok</span>
           </div>
           <h2 className="font-heading font-semibold mb-10 text-glow" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>Koktél művészet</h2>
@@ -36,7 +36,7 @@ export default function Cocktails() {
 
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-20">
           {cocktails.map((c) => (
-            <motion.div key={c.name} variants={staggerItem} whileHover={{ y: -6, scale: 1.02 }} className="card-glass p-8 md:p-10">
+            <motion.div key={c.name} variants={staggerItem} whileHover={{ y: -6, scale: 1.02 }} className="card-glass p-6 md:p-10">
               <h3 className="font-heading text-sm md:text-lg font-semibold mb-4">{c.name}</h3>
               <p className="text-text-secondary text-xs md:text-sm">{c.desc}</p>
             </motion.div>
